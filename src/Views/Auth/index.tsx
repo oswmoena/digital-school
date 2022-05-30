@@ -1,5 +1,4 @@
-import React from 'react';
-import { AuthProviderData } from '../../Context/Auth';
+// import { AuthProviderData } from '../../Context/Auth';
 
 interface Props {
 }

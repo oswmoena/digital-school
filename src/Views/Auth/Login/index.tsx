@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
 import { Button, Grid, TextField } from '@mui/material'
 import './index.css'
 import { useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
+import { LoginSchema } from '../../../Validations/LoginSchema';
+import { validateLogin } from '../../../Utils/CheckLogin';
 
 interface Form {
     userName: String,
@@ -12,19 +13,12 @@ interface Form {
 const Login = () => {
     let navigate = useNavigate();
 
-    const [name, setName] = useState("")
-
-    const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { target } = event
-        setName(target.value)
-    }
-
     const handleSubmit = () => {
-        navigate("/home", { state: { name } });
+        navigate("/home");
     }
 
     const redirectToForgotPassword = () => {
-        navigate("/home", { state: { name } });
+        navigate("/recover");
     }
 
     const loginForm = useFormik({
@@ -32,8 +26,11 @@ const Login = () => {
             userName: '',
             password: '',
         },
+        validationSchema: LoginSchema,
         onSubmit: (values: Form) => {
-            console.log('values', values)
+            if (validateLogin(values)) {
+                handleSubmit()
+            }
         },
     });
 
