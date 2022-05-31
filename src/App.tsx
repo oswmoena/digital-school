@@ -6,21 +6,24 @@ import { Container } from '@mui/material';
 import Register from './Views/Auth/Register';
 import Login from './Views/Auth/Login';
 import RecoverPassword from './Views/Auth/RecoverPassword';
+import AuthProvider from './Context/AuthProvider';
 
 function App() {
   return (
-    <Container maxWidth="md">
-      <BrowserRouter>
-        <Routes>
-          {/* <Route path='/' element={<Home />} /> */}
-          <Route path='/' element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route path="recover" element={<RecoverPassword />} />
-          <Route path="home" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
-    </Container>
+    <AuthProvider>
+      <Container maxWidth="md">
+        <BrowserRouter>
+          <Routes>
+            {/* <Route path='/' element={<Home />} /> */}
+            <Route path='/' element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route path="recover" element={<RecoverPassword />} />
+            <Route path="home" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </Container>
+    </AuthProvider>
   );
 }
 

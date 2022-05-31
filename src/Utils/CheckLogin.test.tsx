@@ -10,7 +10,7 @@ import { validateLogin } from './CheckLogin'
 
 test('check login SUCCESS', async () => {
 
-    const result = validateLogin({ userName: 'omoena', password: 'asdasd' })
+    const result = validateLogin({ userName: 'omoena', password: '123' })
 
     expect(result).toBe(true)
 })
