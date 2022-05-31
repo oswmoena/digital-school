@@ -10,7 +10,7 @@ export const Home = () => {
         return () => {
             console.log('userContext', userContext)
         }
-    }, [])
+    }, [userContext.user])
 
 
     return (

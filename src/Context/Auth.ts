@@ -1,12 +1,10 @@
 const AuthProviderData = {
     isAuthenticated: false,
-    signin(callback: VoidFunction) {
+    signin() {
         AuthProviderData.isAuthenticated = true;
-        setTimeout(callback, 100);
     },
-    signout(callback: VoidFunction) {
+    signout() {
         AuthProviderData.isAuthenticated = false;
-        setTimeout(callback, 100);
     },
 };
 

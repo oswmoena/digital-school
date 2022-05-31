@@ -6,18 +6,15 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     let [user, setUser] = React.useState<any>(null);
 
     let signin = (newUser: any) => {
-        console.log('newUser', newUser)
         localStorage.setItem('user', newUser.userName)
-        return AuthProviderData.signin(() => {
-            setUser(newUser);
-        });
+        setUser(newUser);
+        return AuthProviderData.signin();
     };
 
     let signout = () => {
         localStorage.removeItem('user')
-        return AuthProviderData.signout(() => {
-            setUser(null);
-        });
+        setUser(null);
+        return AuthProviderData.signout();
     };
 
     let value = { user, signin, signout };
