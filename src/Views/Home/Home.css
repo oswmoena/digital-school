@@ -1,0 +1,8 @@
+.title-home {
+    text-transform: capitalize;
+    font-size: 2em;
+    font-weight: bolder;
+    color: black;
+    align-self: center;
+    padding: 0.66em 0%;
+}

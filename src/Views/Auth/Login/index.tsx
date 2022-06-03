@@ -45,8 +45,9 @@ const Login = () => {
         },
         validationSchema: LoginSchema,
         onSubmit: (values: Form) => {
-            if (validateLogin(values)) {
-                handleSubmit(values)
+            const { result, user } = validateLogin(values)
+            if (result) {
+                handleSubmit(user)
             } else {
                 handleError()
             }

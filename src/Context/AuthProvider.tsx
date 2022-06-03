@@ -6,7 +6,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     let [user, setUser] = React.useState<any>(null);
 
     let signin = (newUser: any) => {
-        localStorage.setItem('user', newUser.userName)
+        localStorage.setItem('user', JSON.stringify(newUser))
         setUser(newUser);
         return AuthProviderData.signin();
     };

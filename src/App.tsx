@@ -2,7 +2,7 @@ import './App.css';
 import { Home } from './Views/Home/Home';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container } from '@mui/material';
-// import { Layout } from './Views/Layout/Layout';
+import { MainLayout } from './Views/Layout/MainLayout';
 import Register from './Views/Auth/Register';
 import Login from './Views/Auth/Login';
 import RecoverPassword from './Views/Auth/RecoverPassword';
@@ -14,13 +14,15 @@ function App() {
       <Container maxWidth="md">
         <BrowserRouter>
           <Routes>
-            {/* <Route path='/' element={<Home />} /> */}
             <Route path='/' element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="recover" element={<RecoverPassword />} />
-            <Route path="home" element={<Home />} />
+            <Route element={<MainLayout />}>
+              <Route path="home" element={<Home />} />
+            </Route>
           </Routes>
+
         </BrowserRouter>
       </Container>
     </AuthProvider>
